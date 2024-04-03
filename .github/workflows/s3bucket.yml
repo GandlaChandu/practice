@@ -24,8 +24,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "eu-north-1"
         run: |
-          echo "$AWS_ACCESS_KEY_ID"
-          echo "$AWS_SECRET_ACCESS_KEY"
-          echo "$AWS_DEFAULT_REGION"
+          echo $AWS_ACCESS_KEY_ID
+          echo $AWS_SECRET_ACCESS_KEY
+          echo $AWS_DEFAULT_REGION
 
       
