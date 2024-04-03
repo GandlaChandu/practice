@@ -14,8 +14,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: AWS CLI  creds
+        env:
+          access_key: ${{ aws_access_key_id }}
         run: |
-          aws configure set aws_access_key_id AKIAYS2NR5CB7XSFXTFE
+          aws configure set aws_access_key_id $access_key
           aws configure set aws_secret_access_key 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
           aws configure set default.region "eu-north-1"
           aws s3 ls
