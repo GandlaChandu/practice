@@ -15,18 +15,7 @@ jobs:
 
       - name: Install AWS CLI
         run: |
-          sudo apt-get update
-          sudo apt-get install -y awscli
+          echo "aws-azure-gcp"
 
-      - name: Set AWS credentials as environment variables
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: "eu-north-1"
-        run: |
-          echo "$env.AWS_ACCESS_KEY_ID"
-          echo "env.AWS_SECRET_ACCESS_KEY"
-          echo $env.AWS_DEFAULT_REGION
-          echo "$secrets.AWS_ACCESS_KEY_ID"
-
+      
       
