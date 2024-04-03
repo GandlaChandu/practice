@@ -27,5 +27,6 @@ jobs:
           echo "$env.AWS_ACCESS_KEY_ID"
           echo "env.AWS_SECRET_ACCESS_KEY"
           echo $env.AWS_DEFAULT_REGION
+          echo "secrets.AWS_ACCESS_KEY_ID"
 
       
