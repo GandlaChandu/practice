@@ -1,4 +1,4 @@
-name: Create S3 Bucket
+name: AWS S3 List Buckets
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  create-s3-bucket:
+  list-buckets:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,8 +28,6 @@ jobs:
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
           echo "AWS_DEFAULT_REGION=${{ secrets.AWS_DEFAULT_REGION }}" >> $GITHUB_ENV
 
-      - name: Create S3 bucket
+      - name: List S3 buckets
         run: |
           aws s3 ls
-            
-            
