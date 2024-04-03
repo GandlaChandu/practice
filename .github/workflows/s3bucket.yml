@@ -23,5 +23,5 @@ jobs:
       - name: identity
         run: |
           aws sts get-caller-identity
-          aws s3 ls
+          aws s3api create-bucket --bucket gujarat-987 --region eu-north-1 --create-bucket-configuration LocationConstraint=eu-north-1
           
