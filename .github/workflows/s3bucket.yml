@@ -1,16 +1,29 @@
+name: Create S3 Bucket
 
-image: python:3.9.7  # Specify the Docker image to use for running the pipeline
+on:
+  push:
+    branches:
+      - main
 
-pipelines:
-  default:
-    - step:
-        name: Create S3 Bucket
-        script:
-          # Install AWS CLI using pip
-          - pip install awscli
-          # Configure AWS CLI with your AWS credentials (replace ACCESS_KEY and SECRET_KEY with your actual credentials)
-          - aws configure set aws_access_key_id AKIAY5IBI5MKMSOZOFSA
-          - aws configure set aws_secret_access_key eHN0mvSZHNBTMNNIEEqugKNR00hfHOzWA3QDTyVQ
-          - aws configure set region eu-north-1  # Specify the AWS region (replace with your desired region)
-          # Create an S3 bucket named 'my-example-bucket' (replace with your desired bucket name)
-          - aws s3api create-bucket --bucket delhi-capitals --region eu-north-1 --create-bucket-configuration LocationConstraint=eu-north-1
+jobs:
+  create-s3-bucket:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Configure AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region eu-north-1
+
+      - name: Create S3 bucket
+        run: |
+          - aws s3api create-bucket --bucket delhi-capitals-5432 --region eu-north-1 --create-bucket-configuration LocationConstraint=eu-north-1
