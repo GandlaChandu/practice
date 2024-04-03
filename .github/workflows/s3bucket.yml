@@ -13,13 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install AWS CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y awscli
 
       - name: Set AWS credentials
-          with|
+        run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key eHN0mvSZHNBTMNNIEEqugKNR00hfHOzWA3QDTyVQ
           aws configure set default.region "eu-north-1"
