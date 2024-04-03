@@ -28,6 +28,4 @@ jobs:
           echo "AWS_SECRET_ACCESS_KEY"
           echo "AWS_DEFAULT_REGION"
 
-      - name: List S3 buckets
-        run: |
-          aws s3 ls
+      
