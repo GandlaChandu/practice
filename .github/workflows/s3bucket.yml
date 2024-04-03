@@ -30,7 +30,6 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          aws s3api create-bucket \
-            --bucket delhi-capitals-5432 \
-            --region $AWS_DEFAULT_REGION \
-            --create-bucket-configuration LocationConstraint=$AWS_DEFAULT_REGION
+          aws s3 ls
+            
+            
