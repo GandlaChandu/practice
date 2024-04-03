@@ -16,7 +16,7 @@ jobs:
 
       - name: Set AWS credentials
         run: |
-          aws configure set aws_access_key_id "${{ sample_AWS_ACCESS_KEY_ID }}"
+          aws configure set aws_access_key_id "${{ env.sample.AWS_ACCESS_KEY_ID }}"
           aws configure set aws_secret_access_key eHN0mvSZHNBTMNNIEEqugKNR00hfHOzWA3QDTyVQ
           aws configure set default.region "eu-north-1"
 
